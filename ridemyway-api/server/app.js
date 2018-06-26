@@ -34,7 +34,7 @@ app.use(express.static(__dirname + "/public"));
 
 
 app.get('/api/v1/rides', (req, res) => {
-	res.send(rides);
+	res.status(200).send(rides);
 });
 
 app.get('/api/v1/rides/:id', (req, res) => {
