@@ -1,0 +1,14 @@
+{
+  "name": "develop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start":"node server/index.js"
+  },
+  "author": "Eben",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
