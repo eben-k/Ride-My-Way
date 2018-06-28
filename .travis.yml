@@ -1,0 +1,29 @@
+ language: node_js
+ node_js: 
+   - "stable" 
+
+
+ script: npm test
+
+
+ addons:
+   code_climate:
+   repo_token:GuQr8mD9DaQWk50cfqnhnjx8EwqV5r4Tz
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=31dc79fd219de9ae6ede71e5fa828c76d70eaf9f5db43692adc16b708afabdb7
+
+before_script:
+   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+   - chmod +x ./cc-test-reporter
+   - ./cc-test-reporter before-build
+
+script:
+   - nyc --reporter=lcov npm run test
+
+after script:
+  -./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  -npm run coverage
+
+
