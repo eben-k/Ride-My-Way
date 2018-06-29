@@ -4,11 +4,19 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start":"node server/index.js"
+    "start": "node server/index.js",
+    "test": "nyc mocha server/test --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Eben",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.1",
+    "nyc": "^12.0.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
