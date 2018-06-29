@@ -5,6 +5,7 @@ line-height: 1.5;
 padding: 0;
 margin: 0;
 background-color: #f4f4f4;
+
 }
 
 .container{
@@ -34,7 +35,6 @@ margin: 0;
 }
 
 header li{
-float: left;
 display: inline;
 padding: 0 20px 0 20px;
 }
@@ -60,6 +60,10 @@ font-weight: bold;
 header a:hover{
 color: #cccccc;
 font-weight: bold;
+}
+
+#main-container{
+  flex: 1;
 }
 
 #showcase{
@@ -238,7 +242,6 @@ background-color: #ff8c00;
 
 footer{
 padding: 20px;
-margin-top: 20px;
 margin-bottom: 0;
 color: #ffffff;
 background-color: #2E294E;
