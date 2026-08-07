@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ride-My-Way | Take a Ride</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container clearfix">
+      <div id="branding">
+        <h1><a href="index.html"><span class="highlight">Ride</span>-My-Way</a></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="current"><a href="rides.html">Rides</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="main">
+    <div class="container">
+      <article id="history">
+        <h1>Take a Ride</h1>
+
+        <label for="ride-select">Choose a ride</label>
+        <select id="ride-select">
+          <option value="">Select a ride&hellip;</option>
+          <option value="KIA Picanto">KIA Picanto &mdash; Point A to Point B</option>
+          <option value="Toyota Matrix">Toyota Matrix &mdash; Point A to Point B</option>
+          <option value="Range Rover Sport">Range Rover Sport &mdash; Point A to Point B</option>
+        </select>
+
+        <div id="ride-details"></div>
+
+        <div class="confirmation">
+          <button type="button" id="request-button" disabled>Request to Join</button>
+        </div>
+      </article>
+
+      <aside id="sidebar">
+        <div class="btn-group">
+          <a href="offerride.html">Offer a Ride</a>
+          <a href="rides.html">Back to Rides</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ride-My-Way, Copyright &copy; 2026</p>
+  </footer>
+
+  <script src="js/takeride.js"></script>
+</body>
+</html>
