@@ -202,6 +202,16 @@ ul.ride-list li {
   background: #ffffff;
 }
 
+ul#rides li a {
+  color: #2f6d4f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ul#rides li a:hover {
+  text-decoration: underline;
+}
+
 .btn-group {
   display: flex;
   flex-direction: column;
