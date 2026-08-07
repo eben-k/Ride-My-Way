@@ -8,7 +8,7 @@
     "start": "node --env-file=.env server/index.js",
     "migrate": "node --env-file=.env server/db/migrate.js",
     "test": "node --env-file=.env.test server/db/migrate.js && node --env-file=.env.test --test --test-concurrency=1 'server/test/**/*.test.js' 'public/js/test/**/*.test.js'",
-    "test:coverage": "node --env-file=.env.test server/db/migrate.js && node --env-file=.env.test --experimental-test-coverage --test-coverage-include='server/**/*.js' --test-coverage-include='public/js/**/*.js' --test-coverage-exclude='**/test/**' --test --test-concurrency=1 --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info 'server/test/**/*.test.js' 'public/js/test/**/*.test.js'",
+    "test:coverage": "node --env-file=.env.test server/db/migrate.js && mkdir -p coverage && node --env-file=.env.test --experimental-test-coverage --test-coverage-include='server/**/*.js' --test-coverage-include='public/js/**/*.js' --test-coverage-exclude='**/test/**' --test --test-concurrency=1 --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info 'server/test/**/*.test.js' 'public/js/test/**/*.test.js'",
     "lint": "eslint ."
   },
   "author": "Eben",
