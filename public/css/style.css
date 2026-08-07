@@ -243,6 +243,69 @@ ul.ride-list li {
   color: #2f6d4f;
 }
 
+.message {
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 2px;
+}
+
+.error {
+  background: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5c6c0;
+}
+
+.success {
+  background: #eaf6ee;
+  color: #2f6d4f;
+  border: 1px solid #bfe3cc;
+}
+
+.request-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  margin-bottom: 8px;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.status-badge.pending {
+  background: #fff3cd;
+  color: #8a6d00;
+}
+
+.status-badge.accepted {
+  background: #eaf6ee;
+  color: #2f6d4f;
+}
+
+.status-badge.rejected {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.btn-small {
+  width: auto;
+  padding: 8px 14px;
+  margin: 0 0 0 8px;
+}
+
+.nav-user {
+  color: #ffffff;
+  text-transform: none;
+  margin-right: 12px;
+}
+
 footer {
   padding: 20px;
   margin-top: 20px;

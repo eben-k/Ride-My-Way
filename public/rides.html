@@ -18,6 +18,7 @@
           <li><a href="about.html">About</a></li>
           <li class="current"><a href="rides.html">Rides</a></li>
           <li><a href="profile.html">Profile</a></li>
+          <li id="auth-slot"></li>
         </ul>
       </nav>
     </div>
@@ -27,29 +28,13 @@
     <div class="container">
       <article id="history">
         <h1>Available Ride Offers</h1>
-        <ul id="rides">
-          <li>
-            <h3>KIA Picanto &mdash; Point A to Point B</h3>
-            <p>Driver: John &middot; Departs 08:00 &middot; 3 seats</p>
-            <a href="takeride.html?ride=1">View details &amp; request to join</a>
-          </li>
-          <li>
-            <h3>Toyota Matrix &mdash; Point A to Point B</h3>
-            <p>Driver: Jake &middot; Departs 09:00 &middot; 2 seats</p>
-            <a href="takeride.html?ride=2">View details &amp; request to join</a>
-          </li>
-          <li>
-            <h3>Range Rover Sport &mdash; Point A to Point B</h3>
-            <p>Driver: Jane &middot; Departs 10:00 &middot; 4 seats</p>
-            <a href="takeride.html?ride=3">View details &amp; request to join</a>
-          </li>
-        </ul>
+        <div id="message"></div>
+        <ul id="rides"></ul>
       </article>
 
       <aside id="sidebar">
         <div class="btn-group">
           <a href="offerride.html">Offer a Ride</a>
-          <a href="takeride.html">Take a Ride</a>
         </div>
       </aside>
     </div>
@@ -58,5 +43,7 @@
   <footer>
     <p>Ride-My-Way, Copyright &copy; 2026</p>
   </footer>
+  <script type="module" src="js/pages/nav.js"></script>
+  <script type="module" src="js/pages/rides.js"></script>
 </body>
 </html>
