@@ -18,6 +18,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="rides.html">Rides</a></li>
           <li class="current"><a href="profile.html">Profile</a></li>
+          <li id="auth-slot"></li>
         </ul>
       </nav>
     </div>
@@ -28,27 +29,24 @@
       <article id="history">
         <h1>My Profile</h1>
 
+        <div id="message"></div>
+
         <div class="profile-stats">
           <div class="stat">
-            <span class="count">2</span>
+            <span class="count" id="given-count">0</span>
             Rides Given
           </div>
           <div class="stat">
-            <span class="count">1</span>
+            <span class="count" id="taken-count">0</span>
             Rides Taken
           </div>
         </div>
 
         <h2>Rides Given</h2>
-        <ul class="ride-list">
-          <li>KIA Picanto &mdash; Point A to Point B &mdash; 08:00</li>
-          <li>Toyota Matrix &mdash; Point A to Point B &mdash; 09:00</li>
-        </ul>
+        <ul class="ride-list" id="given-list"></ul>
 
         <h2>Rides Taken</h2>
-        <ul class="ride-list">
-          <li>Range Rover Sport &mdash; Point A to Point B &mdash; 10:00</li>
-        </ul>
+        <ul class="ride-list" id="taken-list"></ul>
       </article>
 
       <aside id="sidebar">
@@ -63,5 +61,7 @@
   <footer>
     <p>Ride-My-Way, Copyright &copy; 2026</p>
   </footer>
+  <script type="module" src="js/pages/nav.js"></script>
+  <script type="module" src="js/pages/profile.js"></script>
 </body>
 </html>

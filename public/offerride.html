@@ -18,6 +18,7 @@
           <li><a href="about.html">About</a></li>
           <li class="current"><a href="rides.html">Rides</a></li>
           <li><a href="profile.html">Profile</a></li>
+          <li id="auth-slot"></li>
         </ul>
       </nav>
     </div>
@@ -27,7 +28,8 @@
     <div class="container">
       <article id="history">
         <h1>Offer a Ride</h1>
-        <form>
+        <div id="message"></div>
+        <form id="offer-form">
           <label for="car">Car</label>
           <input type="text" id="car" name="car" placeholder="e.g. KIA Picanto" required>
 
@@ -61,5 +63,7 @@
   <footer>
     <p>Ride-My-Way, Copyright &copy; 2026</p>
   </footer>
+  <script type="module" src="js/pages/nav.js"></script>
+  <script type="module" src="js/pages/offerride.js"></script>
 </body>
 </html>

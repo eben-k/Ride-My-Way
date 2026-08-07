@@ -4,7 +4,7 @@ A carpooling application that provides drivers with the ability to create ride o
 
 ## Status
 
-Phase 2 of a rebuild: Postgres-backed REST API with JWT authentication, plus the static UI from Phase 1. Ride creation and management are tied to real user accounts now — see the API table below. The frontend isn't wired to the live API yet (Phase 3).
+The rebuild is feature-complete: a Postgres-backed, JWT-secured REST API, and a vanilla-JS frontend (`public/`) wired to it end to end — sign up, log in, offer a ride, browse rides, request to join, and accept/reject requests from your profile.
 
 ## Requirements
 
@@ -37,7 +37,7 @@ npm run migrate
 npm start
 ```
 
-Then open `http://localhost:3000` in a browser. The same Express server serves the UI (from `public/`) and the API, so no separate frontend server is needed.
+Then open `http://localhost:3000` in a browser. The same Express server serves the UI (from `public/`) and the API, so no separate frontend server is needed. Sign up, offer a ride from one account, then sign in as a second account to browse and request it.
 
 ## API
 
@@ -53,8 +53,13 @@ All endpoints are versioned under `/api/v1`. Every endpoint except signup/login 
 | POST | `/api/v1/users/rides` | required | Create a ride offer owned by the authenticated driver |
 | GET | `/api/v1/users/rides/:id/requests` | required, owner only | List requests for a ride you created, with passenger names |
 | PUT | `/api/v1/users/rides/:id/requests/:requestId` | required, owner only | Accept or reject a request (`{ "status": "accepted" \| "rejected" }`) |
+| GET | `/api/v1/users/requests` | required | List the authenticated user's own join requests, with ride details |
 
 Data is persisted in Postgres (raw SQL via `pg`, no ORM). Passwords are hashed with Node's built-in `crypto.scrypt`; tokens are signed JWTs valid for 1 day.
+
+## Frontend
+
+Plain HTML/CSS/vanilla JS in `public/`, no framework. `public/js/apiClient.js` wraps every endpoint above with `fetch`; `public/js/auth.js` handles token storage (`localStorage`) and reading the logged-in user from the JWT. Each page has a thin script in `public/js/pages/` that wires its form/list to those modules — `nav.js` runs on every page to show "Sign In" vs. "Hi, `<name>` / Sign Out". Errors are shown inline (`.error`/`.success` messages), never `alert()`.
 
 ## Tests
 
@@ -62,7 +67,9 @@ Data is persisted in Postgres (raw SQL via `pg`, no ORM). Passwords are hashed w
 npm test
 ```
 
-Runs migrations against `ride_my_way_test`, then the full suite with Node's built-in test runner (`node:test`) and `supertest`, against a real Postgres database (truncated between tests). Test files run serially (`--test-concurrency=1`) since they share that database.
+Runs migrations against `ride_my_way_test`, then the full suite with Node's built-in test runner (`node:test`): backend route/store tests via `supertest` against a real Postgres database (truncated between tests), plus frontend `apiClient`/`auth` unit tests with a mocked `fetch`. Test files run serially (`--test-concurrency=1`) since the backend tests share that database.
+
+The DOM-facing page scripts (`public/js/pages/*.js`) aren't unit tested — they're thin glue verified manually in a browser (sign up → offer → browse → request → accept/reject → check both profiles).
 
 ## Lint
 
@@ -72,8 +79,4 @@ npm run lint
 
 ## GitHub Pages
 
-The `public/` directory is also published to GitHub Pages as a static preview of the UI. Since Pages only serves static files, the hosted version isn't wired to a live API — run the app locally (see above) to use the working API.
-
-## Roadmap
-
-- **Phase 3**: Wire the frontend to the live API with `fetch` — login/signup forms, token storage, and working offer/request/accept flows.
+The `public/` directory is also published to GitHub Pages as a static preview of the UI. Since Pages only serves static files, the hosted version can't reach a live API — run the app locally (see above) for the working end-to-end flow.

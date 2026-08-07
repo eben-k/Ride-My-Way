@@ -18,6 +18,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="rides.html">Rides</a></li>
           <li><a href="profile.html">Profile</a></li>
+          <li id="auth-slot"></li>
         </ul>
       </nav>
     </div>
@@ -25,10 +26,12 @@
 
   <section id="join">
     <div class="container">
-      <form>
+      <form id="signup-form">
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
+
+        <div id="message"></div>
 
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Enter Name" required>
@@ -63,5 +66,7 @@
   <footer>
     <p>Ride-My-Way, Copyright &copy; 2026</p>
   </footer>
+  <script type="module" src="js/pages/nav.js"></script>
+  <script type="module" src="js/pages/signup.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node --env-file=.env server/index.js",
     "migrate": "node --env-file=.env server/db/migrate.js",
-    "test": "node --env-file=.env.test server/db/migrate.js && node --env-file=.env.test --test --test-concurrency=1 'server/test/**/*.test.js'",
+    "test": "node --env-file=.env.test server/db/migrate.js && node --env-file=.env.test --test --test-concurrency=1 'server/test/**/*.test.js' 'public/js/test/**/*.test.js'",
     "lint": "eslint ."
   },
   "author": "Eben",

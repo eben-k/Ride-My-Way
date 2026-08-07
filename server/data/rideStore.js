@@ -71,6 +71,29 @@ export async function listRequestsForRide(rideId) {
   return rows.map(mapRequest);
 }
 
+export async function listRequestsForPassenger(passengerId) {
+  const { rows } = await pool.query(
+    `SELECT ride_requests.id, ride_requests.ride_id, ride_requests.status, ride_requests.created_at,
+            rides.car, rides.from_location, rides.to_location, rides.departure_time, rides.driver_id
+     FROM ride_requests
+     JOIN rides ON rides.id = ride_requests.ride_id
+     WHERE ride_requests.passenger_id = $1
+     ORDER BY ride_requests.id`,
+    [passengerId],
+  );
+  return rows.map((row) => ({
+    id: row.id,
+    rideId: row.ride_id,
+    status: row.status,
+    createdAt: row.created_at,
+    driverId: row.driver_id,
+    car: row.car,
+    from: row.from_location,
+    to: row.to_location,
+    departureTime: row.departure_time,
+  }));
+}
+
 export async function updateRequestStatus(rideId, requestId, status) {
   const { rows } = await pool.query(
     `UPDATE ride_requests SET status = $1

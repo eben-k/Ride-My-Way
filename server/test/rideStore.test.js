@@ -2,6 +2,7 @@ import { describe, it, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   listRides, getRideById, createRide, addRequestToRide, listRequestsForRide, updateRequestStatus,
+  listRequestsForPassenger,
 } from '../data/rideStore.js';
 import { createUser } from '../data/userStore.js';
 import { resetDb } from './helpers/db.js';
@@ -109,5 +110,25 @@ describe('rideStore', () => {
     const updated = await updateRequestStatus(otherRide.id, joinRequest.id, 'accepted');
 
     assert.equal(updated, null);
+  });
+
+  it('lists a passenger\'s own join requests with ride details', async () => {
+    const ride = await createRide(newRidePayload(driver.id));
+    const passenger = await createTestUser('passenger1');
+    await addRequestToRide(ride.id, { passengerId: passenger.id });
+
+    const requests = await listRequestsForPassenger(passenger.id);
+
+    assert.equal(requests.length, 1);
+    assert.equal(requests[0].rideId, ride.id);
+    assert.equal(requests[0].car, 'Honda Civic');
+    assert.equal(requests[0].from, 'Yaba');
+    assert.equal(requests[0].to, 'Lekki');
+    assert.equal(requests[0].status, 'pending');
+  });
+
+  it('lists no requests for a passenger with none', async () => {
+    const passenger = await createTestUser('passenger1');
+    assert.deepEqual(await listRequestsForPassenger(passenger.id), []);
   });
 });

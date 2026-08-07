@@ -18,6 +18,7 @@
           <li><a href="about.html">About</a></li>
           <li class="current"><a href="rides.html">Rides</a></li>
           <li><a href="profile.html">Profile</a></li>
+          <li id="auth-slot"></li>
         </ul>
       </nav>
     </div>
@@ -26,16 +27,9 @@
   <section id="main">
     <div class="container">
       <article id="history">
-        <h1>Take a Ride</h1>
+        <h1>Ride Details</h1>
 
-        <label for="ride-select">Choose a ride</label>
-        <select id="ride-select">
-          <option value="">Select a ride&hellip;</option>
-          <option value="KIA Picanto">KIA Picanto &mdash; Point A to Point B</option>
-          <option value="Toyota Matrix">Toyota Matrix &mdash; Point A to Point B</option>
-          <option value="Range Rover Sport">Range Rover Sport &mdash; Point A to Point B</option>
-        </select>
-
+        <div id="message"></div>
         <div id="ride-details"></div>
 
         <div class="confirmation">
@@ -56,6 +50,7 @@
     <p>Ride-My-Way, Copyright &copy; 2026</p>
   </footer>
 
-  <script src="js/takeride.js"></script>
+  <script type="module" src="js/pages/nav.js"></script>
+  <script type="module" src="js/pages/takeride.js"></script>
 </body>
 </html>
