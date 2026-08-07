@@ -5,15 +5,18 @@
   "type": "module",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "test": "node --test 'server/test/**/*.test.js'",
+    "start": "node --env-file=.env server/index.js",
+    "migrate": "node --env-file=.env server/db/migrate.js",
+    "test": "node --env-file=.env.test server/db/migrate.js && node --env-file=.env.test --test --test-concurrency=1 'server/test/**/*.test.js'",
     "lint": "eslint ."
   },
   "author": "Eben",
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1",
-    "joi": "^18.2.3"
+    "joi": "^18.2.3",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.22.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
