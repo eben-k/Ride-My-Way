@@ -1,5 +1,8 @@
 # Ride-My-Way
 
+[![CI](https://github.com/eben-k/Ride-My-Way/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/eben-k/Ride-My-Way/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/eben-k/Ride-My-Way/badge.svg?branch=develop)](https://coveralls.io/github/eben-k/Ride-My-Way?branch=develop)
+
 A carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
 ## Status
@@ -76,6 +79,12 @@ The DOM-facing page scripts (`public/js/pages/*.js`) aren't unit tested — they
 ```
 npm run lint
 ```
+
+## Continuous integration
+
+`.github/workflows/ci.yml` runs on every push/PR against `develop`: spins up a Postgres service container, runs `npm run lint` and `npm run test:coverage` (Node's built-in coverage, via `--experimental-test-coverage`, written out as `coverage/lcov.info`), then uploads that to Coveralls.
+
+This is the modern replacement for what the original project spec asked for with TravisCI — Travis's free tier for open source no longer exists, so GitHub Actions covers that role instead. Coveralls itself is unchanged and still free for public repos.
 
 ## GitHub Pages
 
