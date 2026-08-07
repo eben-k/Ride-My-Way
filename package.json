@@ -1,14 +1,24 @@
 {
-  "name": "develop",
+  "name": "ride-my-way",
   "version": "1.0.0",
-  "description": "",
+  "description": "A carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.",
+  "type": "module",
   "main": "server/index.js",
   "scripts": {
-    "start":"node server/index.js"
+    "start": "node server/index.js",
+    "test": "node --test 'server/test/**/*.test.js'",
+    "lint": "eslint ."
   },
   "author": "Eben",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^5.2.1",
+    "joi": "^18.2.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.9.0",
+    "supertest": "^7.2.2"
   }
 }

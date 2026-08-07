@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ride-My-Way | Offer a Ride</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container clearfix">
+      <div id="branding">
+        <h1><a href="index.html"><span class="highlight">Ride</span>-My-Way</a></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="current"><a href="rides.html">Rides</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="main">
+    <div class="container">
+      <article id="history">
+        <h1>Offer a Ride</h1>
+        <form>
+          <label for="car">Car</label>
+          <input type="text" id="car" name="car" placeholder="e.g. KIA Picanto" required>
+
+          <label for="from">From</label>
+          <input type="text" id="from" name="from" placeholder="Pickup location" required>
+
+          <label for="to">To</label>
+          <input type="text" id="to" name="to" placeholder="Destination" required>
+
+          <label for="departureTime">Departure Time</label>
+          <input type="datetime-local" id="departureTime" name="departureTime" required>
+
+          <label for="seats">Available Seats</label>
+          <input type="number" id="seats" name="seats" min="1" required>
+
+          <div class="confirmation">
+            <button type="button" class="cancel">Cancel</button>
+            <button type="submit">Offer Ride</button>
+          </div>
+        </form>
+      </article>
+
+      <aside id="sidebar">
+        <div class="btn-group">
+          <a href="rides.html">Back to Rides</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ride-My-Way, Copyright &copy; 2026</p>
+  </footer>
+</body>
+</html>
